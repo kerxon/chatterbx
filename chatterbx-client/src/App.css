@@ -1,0 +1,31 @@
+.App {
+  text-align: center;
+  background-size: 100%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-image: url('./snowy-mountains-moonlight.png');
+  height: 100vh;
+}
+
+.App-header {
+  background-color: transparent;
+  height: 6vh;
+  padding: 20px;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  font-weight: 300;
+  font-size: 20px;
+}
+
+.App-main {
+  height: 90vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+
