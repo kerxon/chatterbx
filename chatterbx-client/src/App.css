@@ -1,9 +1,10 @@
 .App {
   text-align: center;
-  background-size: 100%;
+  /* background-size: 100%;
   background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background-image: url('./snowy-mountains-moonlight.png');
+  background-repeat: no-repeat; */
+  background: url('./snowy-mountains-moonlight.png') no-repeat center center fixed;
+  background-size: cover;
   height: 100vh;
 }
 
