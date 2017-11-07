@@ -1,11 +1,9 @@
 .App {
   text-align: center;
-  /* background-size: 100%;
-  background-position: 50% 50%;
-  background-repeat: no-repeat; */
   background: url('./snowy-mountains-moonlight.png') no-repeat center center fixed;
   background-size: cover;
   height: 100vh;
+  display: block;
 }
 
 .App-header {
@@ -22,7 +20,8 @@
   height: 90vh;
   display: flex;
   align-items: flex-end;
-  justify-content: space-around;
+  justify-content: space-between;
+  margin: 0 5vw;
 }
 
 .App-title {

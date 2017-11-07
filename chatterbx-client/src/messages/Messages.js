@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Messages.css';
-import { subscribeToMessages } from '../api';
+import { subscribeToMessages, sendMessage } from '../api';
 
 class Messages extends Component {
     constructor(props) {
@@ -9,17 +9,15 @@ class Messages extends Component {
             message: 'send a message',
             messages: ['test']
         }
+        subscribeToMessages(this.state.message, (err, data) => {
+            console.log('callback', err, data);
+            this.setState({ 
+                message: data
+            });
+        });
         this.handleChange = this.handleChange.bind(this);
         this.handleInput = this.handleInput.bind(this);
         this.clearInput = this.clearInput.bind(this);
-        
-        subscribeToMessages((err, message) => {
-            console.log('messages');
-            console.log(message);
-            this.setState({
-                message: 'send a message',
-            });
-        });
     }
 
     handleChange(event) {
@@ -37,10 +35,11 @@ class Messages extends Component {
     handleInput(event) {
         event.preventDefault();
         event.stopPropagation();
-        this.setState({
+        this.setState((prevState, props) => ({
             message: this.state.message,
-            messages: [...this.state.messages, this.state.message]
-        });
+            messages: [...prevState.messages, this.state.message]
+        }));
+        sendMessage(this.state.message);
         this.clearInput();
     }
     
@@ -65,8 +64,7 @@ class Messages extends Component {
                     </input>
                 </form>
             </div>
-        )
-            
+        ); 
     }
 }
 

@@ -1,7 +1,7 @@
 .messages-container {
     background: #ECEFF1;
-    width: 20vw;
-    min-width: 320px;
+    width: 30vw;
+    /* min-width: 320px; */
     height: 70vh;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
@@ -47,10 +47,9 @@
     background: #FFFFFF;
     color: #BEBEBE;
     min-height: 18px;
-    max-width: 308px;
-    height: 6%;
     width: 100%;
-    margin: 0;
+    max-width: 100%;
+    height: 6%;
     overflow-y: scroll;
     word-wrap: break-word;
     text-align: left;
