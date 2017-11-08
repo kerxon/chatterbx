@@ -1,24 +1,32 @@
-import React, {Component}  from 'react';
+import React, { Component }  from 'react';
 import MaterialIcon from 'material-icons-react';
 
-function Group(props) {
-    console.log(props.group);
-    return ( 
-        <li 
-            className="groups-list-item"
-            onMouseLeave={ props.toggleMenu }
-            onMouseEnter={ props.toggleMenu }>    
-                <MemberList members={ props.group.members }/>
-                <menu toggle={props.show}/>
-        </li>
-    );
+class Group extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            show: props.group.show
+        }
+    }
+
+    render() {
+        return ( 
+            <li 
+                className="groups-list-item"
+                onMouseLeave={ () => this.setState({ show: false }) }
+                onMouseEnter={ () => this.setState({ show: true }) }>    
+                    <MemberList members={ this.props.group.members } />
+                    <Menu className="groups-list-item-menu" show={this.state.show} />
+            </li>
+        );
+    }
 }
 
-function menu(props) {
-    console.log(props)
-    if (props.toggle === true) {
-        return <MaterialIcon icon="dashboard" size='medium' color='#404040'/>
+function Menu(prevState, props) {
+    if (prevState.show === true) {
+        return <MaterialIcon icon="more_vert" size='small' color='#404040'/>;
     }
+    return <div></div>
 }
 
 function MemberList(props) {
@@ -31,10 +39,3 @@ function MemberList(props) {
 
 export default Group;
 
-// toggleMenu() {
-//     this.setState({
-//         show: !this.state.show
-//     });
-// }
-// toggleMenu={this.toggleMenu}
-// this.toggleMenu = this.toggleMenu.bind(this);

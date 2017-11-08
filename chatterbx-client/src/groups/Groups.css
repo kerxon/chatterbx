@@ -73,12 +73,17 @@
     margin: 0;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
 }
 
 .groups-list-item:hover {
     background: #f5f5f5;
     color: #263238;
+}
+
+.groups-list-item-menu {
+    align-self: flex-end;
+    margin-left: 100%;
 }
 
 
