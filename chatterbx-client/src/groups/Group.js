@@ -7,6 +7,11 @@ class Group extends Component {
         this.state = {
             show: props.group.show
         }
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick() {
+        console.log('show menu');
     }
 
     render() {
@@ -16,7 +21,7 @@ class Group extends Component {
                 onMouseLeave={ () => this.setState({ show: false }) }
                 onMouseEnter={ () => this.setState({ show: true }) }>    
                     <MemberList members={ this.props.group.members } />
-                    <Menu className="groups-list-item-menu" show={this.state.show} />
+                    <Menu className="groups-list-item-menu" show={ this.state.show }  onClick={ this.handleClick } />
             </li>
         );
     }
@@ -24,7 +29,7 @@ class Group extends Component {
 
 function Menu(prevState, props) {
     if (prevState.show === true) {
-        return <MaterialIcon icon="more_vert" size='small' color='#404040'/>;
+        return <MaterialIcon icon="more_vert" size='small' color='#404040' />;
     }
     return <div></div>
 }
