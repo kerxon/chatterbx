@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { GroupList } from './GroupList';
 import './Groups.css';
 
 class Groups extends Component {
@@ -7,8 +8,8 @@ class Groups extends Component {
         this.state = {
             addNewGroup: false,
             groups: [
-                { id: 0, members: ['Rufus', 'Denali', 'Stewart', 'Bridger']},
-                { id: 1, members: ['Rufus', 'Denali'] }
+                { id: 0, members: ['Rufus', 'Denali', 'Stewart', 'Bridger'], show: false },
+                { id: 1, members: ['Rufus', 'Denali'], show: false }
             ],
             addMembers: ''
         }
@@ -75,31 +76,6 @@ class Groups extends Component {
                 {tile}
                 <GroupList groups={this.state.groups}/>
             </div>
-        );
-    }
-}
-
-function MemberList(props) {
-    let memberList = '';
-    props.group.members.map((member, i, arr) => {
-        return i < arr.length -1 ? memberList += member + ', ' : memberList += member;
-    });
-    return memberList;
-}
-
-function GroupList(props) {
-    if (props.groups.length > 0) {
-        const groupList = props.groups.map((group, i) => {
-            return ( 
-                <li className="groups-list-item" key={group.id.toString() + i.toString()}>
-                    <MemberList group={group} />
-                </li>
-            );
-        });
-        return (
-            <ul className="groups-list">
-                {groupList}
-            </ul>
         );
     }
 }
