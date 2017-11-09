@@ -71,7 +71,6 @@ class Groups extends Component {
                     </form>
                 </div>;
         } 
-
         return (
             <div className="groups-container">
                 {tile}
