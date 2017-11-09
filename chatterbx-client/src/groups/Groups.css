@@ -1,3 +1,4 @@
+/* GROUPS */
 .groups-container {
     background: #FFFFFF;
     color: #404040;
@@ -56,6 +57,7 @@
     max-width: 100%;
 }
 
+/* GROUPSLIST */
 .groups-list {
     height: 90%;
     width: 100%;
@@ -85,6 +87,11 @@
     justify-content: space-between;
 }
 
+.group-memberlist {
+    width: 90%;
+    margin-right: 10vw;
+}
+
 .groups-list-item-menu {
     width: 5%;
     align-self: flex-end !important;
@@ -94,7 +101,7 @@
 .groups-list-item-menu:hover {
     color: #263238;
 }
-
+/* GROUP OPTIONS */
 .group-options {
     background: #FFFFFF;
     width: 10vw;
@@ -120,9 +127,5 @@
     background: #F5F5F5;
 }
 
-.group-memberlist {
-    width: 90%;
-    margin-right: 10vw;
-}
 
 
