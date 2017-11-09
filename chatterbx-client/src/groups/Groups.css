@@ -69,11 +69,9 @@
     list-style: none;
     max-width: 100%;
     height: 80px;
-    padding: 0 10px 0 40px;
+    padding: 20px 10px 0 40px;
     margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    width: 100%;
 }
 
 .groups-list-item:hover {
@@ -81,11 +79,50 @@
     color: #263238;
 }
 
-.groups-list-item-menu {
-    align-self: flex-end;
-    margin-left: 100%;
+.item-content {
+    display: flex;
+    width: 95%;
+    justify-content: space-between;
 }
 
+.groups-list-item-menu {
+    width: 5%;
+    align-self: flex-end !important;
+    color: #404040;
+}
 
+.groups-list-item-menu:hover {
+    color: #263238;
+}
+
+.group-options {
+    background: #FFFFFF;
+    width: 10vw;
+    box-shadow: inset 1px 1px 0 rgba(0,0,0,.1), inset 0 -1px 0 rgba(0,0,0,.07);
+    position: relative;
+    left: 20vw;
+    bottom: 8vh;
+}
+
+.group-options-list {
+    padding: 0;
+    margin: 0;
+}
+
+.group-options-list-item {
+    color: #404040;
+    font-size: 13px;
+    list-style: none;
+    padding: 6px;
+}
+
+.group-options-list-item:hover {
+    background: #F5F5F5;
+}
+
+.group-memberlist {
+    width: 90%;
+    margin-right: 10vw;
+}
 
 

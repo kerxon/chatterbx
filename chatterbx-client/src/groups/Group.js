@@ -1,37 +1,56 @@
 import React, { Component }  from 'react';
-import MaterialIcon from 'material-icons-react';
+import ReactDOM from 'react-dom';
+import Menu from './Menu';
+import Options from './Options';
 
 class Group extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            show: props.group.show
+            show: props.group.show,
+            display: false
         }
-        this.handleClick = this.handleClick.bind(this);
+        this.handleToggle = this.handleToggle.bind(this);
+        this.pageClick = this.pageClick.bind(this);
     }
 
-    handleClick() {
-        console.log('show menu');
+    componentDidMount() {
+        window.addEventListener('mousedown', this.pageClick, false);
     }
 
-    render() {
+    componentWillUnmount() {
+        window.removeEventListener('mousedown', this.pageClick, false);
+    }
+
+    pageClick(e) {
+        if (ReactDOM.findDOMNode(e.target).className === 'group-options-list-item') {
+            return;
+        }
+        this.setState({
+            display: false
+        });
+    }
+
+    handleToggle() {
+        this.setState({
+            display: !this.state.display
+        });
+    }
+
+    render() {  
         return ( 
             <li 
                 className="groups-list-item"
                 onMouseLeave={ () => this.setState({ show: false }) }
-                onMouseEnter={ () => this.setState({ show: true }) }>    
-                    <MemberList members={ this.props.group.members } />
-                    <Menu className="groups-list-item-menu" show={ this.state.show }  onClick={ this.handleClick } />
+                onMouseEnter={ () => this.setState({ show: true }) }>
+                    <div className="item-content">
+                        <MemberList className="group-memberlist" members={ this.props.group.members } />
+                        <Menu className="groups-list-item-menu" show={ this.state.show } toggle={ this.handleToggle } />
+                    </div>
+                    <Options display={this.state.display} onBlur={ this.handleBlur } />
             </li>
         );
     }
-}
-
-function Menu(prevState, props) {
-    if (prevState.show === true) {
-        return <MaterialIcon icon="more_vert" size='small' color='#404040' />;
-    }
-    return <div></div>
 }
 
 function MemberList(props) {

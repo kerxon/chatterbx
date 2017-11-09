@@ -64,6 +64,7 @@ class Groups extends Component {
                             placeholder="enter names"
                             required
                             value={this.state.addMembers}
+                            onBlur={() => this.setState({ addNewGroup: false })}
                             onChange={this.handleChange}>
                         </input>
                         <button className="groups-button" type="submit">+</button>
